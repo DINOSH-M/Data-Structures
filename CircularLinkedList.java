@@ -73,6 +73,7 @@ public class CircularLinkedList<T> {
 			head = head.next ;
 			temp.next = head ;
 			System.out.println("deleted sucessfully");
+			return;
 		}
 		if(position == length) {
 			while(temp.next.next != head)
@@ -80,6 +81,7 @@ public class CircularLinkedList<T> {
 			
 			temp.next = head ;
 			System.out.println("deleted sucessfully");
+			return;
 		}
 		
 		for(int i = 1 ; i < position-1 ; i++){
@@ -101,5 +103,39 @@ public class CircularLinkedList<T> {
 			temp = temp.next ;
 		}while(temp != head);
 		System.out.print("null\n");
+	}
+	
+	public T get(int position) {
+		if(position < 0 || position >= length) {
+			System.out.println("index out of bound...");
+			return null;
+		}
+		if(head == null) {
+			System.out.println("list is empty");
+			return null;
+		}
+		Node<T> temp = head;
+		for(int i = 0 ; i < position ; i++){
+			temp = temp.next ;
+		}
+		return temp.data;
+		
+	}
+	
+	public void update(int position , T data) {
+		if(position < 0 || position >= length) {
+			System.out.println("index out of bound...");
+			return;
+		}
+		if(head == null) {
+			System.out.println("list is empty");
+			return;
+		}
+		Node<T> temp = head;
+		for(int i = 0 ; i < position ; i++){
+			temp = temp.next ;
+		}
+		temp.data = data ;
+		System.out.println("updated sucessfully");
 	}
 }

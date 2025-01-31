@@ -17,7 +17,6 @@ class Node<T>{
 public class SinglyLinkedList<T> {
 	
 	  private Node<T> head ;
-	   Node<T> tail ;
 	  private int length = 0;
 	   
 	   public SinglyLinkedList() {
@@ -28,130 +27,85 @@ public class SinglyLinkedList<T> {
 		   return length ;
 	   }
 	   
-	  public void insertAtBegining(T data) {
-		  
+	  public void insert(T data) {
 		  Node<T> node = new Node<>(data);
-		  
 		  if(head == null) {
-			  tail = node ;
-			  head = node ;
-			  System.out.println("Inserted sucessfully..");
-		  }
-		  else {
-			  node.next = head ;
-			  head = node ;
-			  System.out.println("Inserted sucessfully..");
-		  }
-		  length ++ ;
-		 
-	  }
-	  
-	  public void insertAtEnd(T data) {
-		  Node<T> node = new Node<>(data) ;
-		  
-		  if(head == null) {
-			  tail = node ;
-			  head = node ;
-			  System.out.println("Inserted sucessfully..");
-		  }
-		  else {
-			   tail.next = node ;
-			   tail = node ;
+			   head = node ;
 			   System.out.println("Inserted sucessfully..");
+			   length++;
+			   return;
+		   }
+		  Node<T> temp = head ;
+		  while(temp.next != null) {
+			  temp = temp.next ;
 		  }
+		  
+		  temp.next = node ; 
+		  System.out.println("Inserted sucessfully..");
 		  length++;
 	  }
 	  
-	  public void insertAtPosition(int pos , T data) {
-		  if(pos == 1) {
-			  insertAtBegining(data);
-			  return;
-		  }
-			  
-		  if(pos == length) {
-			  insertAtEnd(data);
+	  public void insert( int position , T data) {
+		  if(position < 0){
+			  System.out.println("Index out of bounds");
 			  return ;
 		  }
-			  
-		  Node<T> node = new Node<>(data) ;
-		  if(pos < 0 || pos > length) {
-			  System.out.println("Index out of bound. enter valid index");
-			  return;  
+		  
+		  if(position > length) {
+			  insert(data);
+			  return;
+		  }
+		     Node<T> node = new Node<>(data) ;
+		     if(position == 0 ) {
+		    	 node.next = head;
+		    	 head = node ;
+		    	 System.out.println("Inserted sucessfully..");
+		    	 length++;
+		    	 return ;
+		     }
+		     
+		   if(head == null) {
+			   head = node ;
+			   System.out.println("Inserted sucessfully..");
+			   length++;
+			   return;
+		   }
+		   Node<T> temp = head ;
+		   
+		   for(int i = 0 ; i < position - 1; i++) {
+			   temp = temp.next ;
+		   }   
+		   node.next = temp.next ;
+		   temp.next = node ;
+		   System.out.println("Inserted sucessfully..");
+		   length++ ;
+	  }
+	  
+	  public void delete(int index) {
+		  if(index < 0 || index > length) {
+			  System.out.println("index out of bound for length "+length);
+			  return;
 		  }
 		  if(head == null) {
-			  head = node ;
-			  tail = node ;
-			  System.out.println("Inserted sucessfully..");
-		  }
-		  else {
-			  Node<T> temp = head ;
-			  for(int i = 1 ; i < pos-1 ; i++)
-				  temp = temp.next ;
-			  node.next = temp.next ;
-			  temp.next = node ;
-			  System.out.println("Inserted sucessfully..");
+			  System.out.println("list is empty...");
+			  return;
 		  }
 		  
-		  length++;
+		  if(index == 0) {
+			  head = head.next;
+			  System.out.println("deleted sucessfully...");
+			   length-- ;
+			   return;
+		  }
+		    Node<T> temp = head ;
+		    for(int i = 1 ; i < index - 1; i++) {
+		    	temp = temp.next ;
+		    }
+		    temp.next = temp.next.next ;
+		    System.out.println("deleted sucessfully..");
+			   length-- ;
 	  }
 	    
-	  public void deleteAtBegining() {
-		  if(head == null) {
-			  System.out.println("list is empty...");
-			  return;
-		  }
-		  else {
-			  head = head.next ;
-			  System.out.println("deleted sucessfully...");
-		  }
-		  length--;
-	  }
-	  
-	  public void deleteAtPosition(int pos) {
-		  if(pos < 0 || pos > length) {
-			  System.out.println("Index out of bound. enter valid index");
-			  return;  
-		  }
-		  
-		  if(pos == 1) {
-			  deleteAtBegining();
-			  return;
-		  }
-		  if(pos == length) {
-			  deleteAtEnd();
-			  return;
-		  }
-		  
-		  if(head == null) {
-			  System.out.println("list is empty...");
-			  return ;
-		  }
-		  else {
-			  Node<T> temp = head ;
-			  for(int i = 1 ; i < pos - 1 ; i++) {
-				  temp = temp.next ;
-			  }
-			  
-			  temp.next = temp.next.next ;
-			  System.out.println("deleted sucessfully...");
-		  }
-		 length--;
-	  }
-	  
-	  public void deleteAtEnd() {
-		  if(head == null) {
-			  System.out.println("list is empty...");
-			  return;
-		  }
-		  Node<T> temp = head ;
-		  while(temp.next != tail)
-			  temp = temp.next ;
-		  
-		  temp.next = null ;
-		  tail = temp ;
-		 
-	  }
-	  
 	  public void display() {
 		  if(head == null) {
 			  System.out.println("list is empty...");

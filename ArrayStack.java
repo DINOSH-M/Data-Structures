@@ -51,6 +51,19 @@ public class ArrayStack<T> {
 		return value;
 	}
 	
+	public void update( int position , T data) {
+		if(top == -1) {
+			System.out.println("underflow condition..");
+			return ;
+		}
+		if(position < 0 || position >= length ) {
+			System.out.println("Index out of Bound");
+			return;
+		}
+		stack[position] = data ;
+		System.out.println("updated sucessfully");
+	}
+	
 	public void isEmpty() {
 		if(top == -1)
 			System.out.println("stack is empty");

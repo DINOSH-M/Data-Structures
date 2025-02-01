@@ -44,16 +44,28 @@ public class ArrayQueue<Q> {
 		if(front == rear)
 			front = rear = -1 ;
 		else {
-			//@SuppressWarnings("unchecked")
 			front++ ;
 		}
 	
 		return value ;
 	}
 	
-	@SuppressWarnings("unchecked")
 	public Q peek() {
+		if(front == -1) {
+			System.out.println("queue is empty");
+			return null ;
+		}
+		
 		return (Q) queue[front] ;
+	}
+	
+	@SuppressWarnings("unchecked")
+	public Q rear() {
+		if(rear == -1) {
+			System.out.println("queue is empty");
+			return null ;
+		}
+		return (Q) queue[rear] ;
 	}
 	
 	public void isEmpty() {

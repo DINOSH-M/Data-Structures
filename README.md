@@ -7,7 +7,7 @@ This repository showcases classic data structure implementations with clear stru
 ---
 
 ## 📁 Project Structure
-
+```
 Data-Structures/
 ├── graph/
 ├── hashTable/
@@ -18,16 +18,14 @@ Data-Structures/
 ├── tree/
 ├── tries/
 └── README.md
-
-yaml
-Copy code
+```
 
 Each folder contains the implementation of the respective data structure using **plain Java**.
 
 ---
 
 ## 📌 Data Structures Included
-
+```
 | Category | Structures |
 |----------|------------|
 | **Linear** | Singly Linked List, Doubly Linked List, Stack, Queue |
@@ -39,7 +37,7 @@ Each folder contains the implementation of the respective data structure using *
 | **Others** | Additional structures as added |
   
 ---
-
+```
 ## 📖 About
 
 Learning data structures from scratch helps you understand how built-in collections and APIs work internally. Knowing these implementations strengthens your grasp on performance trade-offs and prepares you for interview questions and real-world coding challenges. :contentReference[oaicite:2]{index=2}
@@ -57,9 +55,11 @@ You can use IntelliJ, Eclipse, VS Code, or any editor of your choice.
 Compile & Run
 Navigate to an implementation folder (for example linkedlist/) and compile:
 
-bash
-Copy code
+
 javac SinglyLinkedList.java
 java SinglyLinkedList
 Explore & Learn
+
 Each folder contains classes and examples demonstrating how the data structure works.
+
+Disclamier : I currently improving this repo.

@@ -297,6 +297,21 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Built for learners, by learners
 - Special thanks to the open-source community
 
+🚨 READ-ONLY PUBLIC REPOSITORY
+
+This repository is intentionally public for:
+✔ Learning
+✔ Code reading
+✔ Architecture understanding
+
+❌ Copying
+❌ Reuse
+❌ Commercial use
+❌ Production deployment
+
+is strictly prohibited.
+
+
 ## 📧 Contact
 
 **Author**: DINOSH-M

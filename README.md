@@ -299,7 +299,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-**Author**: Dino  
+**Author**: DINOSH-M
 **GitHub**: [@dinoshm](https://github.com/dinoshm)  
 **Repository**: [Data-structures](https://github.com/dinoshm/Data-structures)
 
